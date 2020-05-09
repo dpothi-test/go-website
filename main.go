@@ -11,6 +11,9 @@ func handlerFunc(w http.ResponseWriter, r *http.Request) {
 	} else if r.URL.Path == "/contact" {
 		w.Header().Set("Content-Type", "text/html")
 		fmt.Fprint(w, "Contact Info: <a href=\"test@gmail.com\">link</a>")
+	} else {
+		w.WriteHeader(http.StatusNotFound)
+		fmt.Fprint(w, "Cannot find the page ")
 	}
 }
 func main() {
